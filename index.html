@@ -2,7 +2,8 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>医学培训系统</title>
+    <title>基于大语言模型的精神科医生培训系统</title>
+    <script src="https://res.zvo.cn/translate/translate.js"></script>
     <style>
         body {
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -461,12 +462,85 @@
             display: block;
             margin: 4px 0;
         }
+        /* 翻译按钮样式 */
+        .translate-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .translate-button:hover {
+            background-color: #1565c0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* 语言选择下拉框样式 */
+        #translate {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        #translate select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        #translate select:hover {
+            border-color: #1e88e5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #translate select:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 2px 8px rgba(30,136,229,0.2);
+        }
+        
+        /* 添加小图标 */
+        .translate-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>医学培训系统</h1>
-        <div class="score">得分: <span id="score">0</span> 回合: <span id="rounds">0</span></div>
+        <div class="header-content">
+            <h1>基于大语言模型的精神科医生培训系统</h1>
+            <div class="controls">
+                <button class="translate-button" onclick="toggleTranslate()">
+                    <span class="translate-icon"></span>
+                    中文/English
+                </button>
+                <div class="score">得分: <span id="score">0</span> 回合: <span id="rounds">0</span></div>
+            </div>
+        </div>
     </div>
 
     <div class="main-container">
@@ -545,5 +619,36 @@
     <script src="examinations.js"></script>
     <script src="medicines.js"></script>
     <script src="diagnoses.js"></script>
+    <script>
+        //设置不需要翻译的元素
+        translate.ignore.class.push('score'); 
+        translate.ignore.class.push('price');
+        translate.ignore.tag.push('input');
+        
+        // 设置使用v2.x版本
+        translate.setUseVersion2();
+        
+        // 设置本地语种
+        translate.language.setLocal('chinese_simplified');
+        
+        // 执行翻译初始化
+        translate.execute();
+        
+        // 添加切换翻译的函数
+        function toggleTranslate() {
+            const currentLang = translate.language.getCurrent();
+            if (currentLang === 'chinese_simplified') {
+                translate.language.setLocal('english');
+            } else {
+                translate.language.setLocal('chinese_simplified');
+            }
+            translate.execute();
+        }
+        
+        // 如果有动态内容更新，在更新后调用
+        function updateTranslation() {
+            translate.execute();
+        }
+    </script>
 </body>
 </html> 

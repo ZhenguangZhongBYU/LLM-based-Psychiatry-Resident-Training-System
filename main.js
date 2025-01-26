@@ -64,6 +64,7 @@ function makeDiagnosis() {
         });
 
         modal.style.display = 'block';
+        translate.execute();
     } catch (error) {
         console.error('打开诊断弹窗失败:', error);
     }
@@ -330,6 +331,9 @@ ${selectedTrauma.length > 0 ? `重要经历：${selectedTrauma.join("、")}` : '
         const mainComplaint = extractMainComplaint(response);
         addMessage("新的病人已到达，请开始问诊。", 'system');
         addMessage(mainComplaint, 'patient');
+
+        // 添加翻译调用
+        translate.execute();
     } catch (error) {
         console.error('生成病例失败:', error);
         hideLoading();
@@ -381,6 +385,9 @@ async function sendMessage() {
         } catch (error) {
             console.error('解析评分失败:', error);
         }
+
+        // 添加翻译调用
+        translate.execute();
 
     } catch (error) {
         console.error('发送消息失败:', error);
@@ -501,6 +508,7 @@ function openExamination() {
         });
 
         modal.style.display = 'block';
+        translate.execute();
     } catch (error) {
         console.error('打开检查弹窗失败:', error);
         console.log('examinations:', examinations);
@@ -575,6 +583,9 @@ async function confirmExams() {
 
         const results = await callAPI(resultsPrompt);
         addMessage(results, 'system');
+
+        // 添加翻译调用
+        translate.execute();
     } catch (error) {
         console.error('生成检查评估失败:', error);
     }
@@ -607,6 +618,7 @@ function openDiagnosis() {
     });
 
     modal.style.display = 'block';
+    translate.execute();
 }
 
 function prescribeMedicine() {
@@ -667,6 +679,7 @@ function prescribeMedicine() {
         medicineList.appendChild(confirmButton);
 
         modal.style.display = 'block';
+        translate.execute();
     } catch (error) {
         console.error('打开药物弹窗失败:', error);
     }
@@ -882,6 +895,9 @@ async function confirmPrescription() {
     try {
         const expertFeedback = await callAPI(expertPrompt);
         addMessage(expertFeedback, 'expert');
+
+        // 添加翻译调用
+        translate.execute();
     } catch (error) {
         console.error('获取专家评估失败:', error);
     }
@@ -919,6 +935,9 @@ async function confirmDiagnosis() {
     try {
         const expertFeedback = await callAPI(expertPrompt);
         addMessage(expertFeedback, 'expert');
+
+        // 添加翻译调用
+        translate.execute();
     } catch (error) {
         console.error('获取专家评估失败:', error);
     }
