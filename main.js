@@ -64,7 +64,7 @@ function makeDiagnosis() {
         });
 
         modal.style.display = 'block';
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('打开诊断弹窗失败:', error);
     }
@@ -101,6 +101,7 @@ function updateSelectedDiagnoses() {
             <div class="selected-list">${selectedDiagList.join('<br>')}</div>
         </div>
     `;
+    translate.execute(); // 添加翻译调用
 }
 
 function psychotherapy() {
@@ -128,42 +129,69 @@ function endCase() {
 
 // 添加病例生成和管理相关函数
 async function generateNewCase() {
-    const prompt = `请生成一个详细的精神科就诊病例，包含以下要素：
+    const prompt = `请生成一个详细的精神科就诊病例，从以下疾病类型中随机选择一种：
 
-1. 基本信息：
-- 年龄（18-80岁之间）
-- 性别（包括顺性别和跨性别）
-- 职业（具体工作内容和职位）
-- 婚姻状况（包括感情经历）
-- 教育程度
-- 居住情况
-- 经济状况
+    1. 精神分裂症谱系障碍：
+       - 妄想型：系统性妄想
+       - 偏执型：被害妄想为主
+       - 瓦解型：思维散漫、言语混乱
+       - 紧张型：运动性症状为主
+    
+    2. 情感障碍谱系：
+       - 双相情感障碍：躁狂发作或抑郁发作
+       - 重度抑郁障碍：单次或复发性
+       - 持续性心境障碍
+    
+    3. 分裂情感障碍：
+       - 同时具有精神分裂症和情感障碍症状
+    
+    4. 解离性障碍：
+       - 解离性身份障碍（多重人格）
+       - 解离性遗忘
+       - 解离性漫游
+    
+    5. 精神病性障碍：
+       - 急性短暂性精神病性障碍
+       - 妄想性障碍
+       - 共享性精神病性障碍
+    
+    基本信息：
+    - 年龄：${age}岁
+    - 性别：${gender}
+    - 职业：${job}
+    - 婚姻状况：${maritalStatus}
+    - 教育程度：${education}
+    - 居住情况：${livingConditions}
+    - 经济状况：${financialStatus}
 
-2. 家庭背景：
-- 原生家庭情况
-- 重要人际关系
-- 家族病史
-- 成长经历中的重要事件
+    根据选择的疾病类型，请详细描述：
+    1. 核心症状表现：
+       - 思维障碍（如有）：逻辑混乱、联想障碍、思维散漫等
+       - 知觉障碍（如有）：幻听、幻视、幻嗅等
+       - 妄想症状（如有）：被害妄想、关系妄想、夸大妄想等
+       - 情感症状（如有）：情感平淡、情感不协调、心境改变等
+       - 行为症状（如有）：兴奋、木僵、刻板等
+    
+    2. 发病过程：
+       - 急性或慢性起病
+       - 症状出现的顺序和发展
+       - 诱因和应激因素
+    
+    3. 病前人格特征
+    4. 既往发作史
+    5. 家族史
+    6. 社会功能损害情况
+    7. 治疗经历
 
-3. 主诉：
-- 具体的症状描述
-- 症状持续时间
-- 症状对生活的影响
-
-4. 现病史：
-- 症状的起源和诱因
-- 症状的发展过程
-- 既往求医经历
-- 症状对工作和社交的影响
-- 个人应对方式
-
-5. 既往史：
-- 既往精神疾病史
-- 重要躯体疾病史
-- 药物使用史
-- 物质使用史
-
-请以结构化的方式呈现，每个部分需要详细且真实，体现患者的独特性和故事性。`;
+    要求：
+    1. 使用第一人称叙述
+    2. 增加具体的生活场景
+    3. 加入情感表达
+    4. 体现人物性格特点
+    5. 如果是思维障碍患者，需要体现出语言逻辑的混乱
+    6. 如果是妄想患者，需要详细描述妄想内容
+    7. 如果是解离性患者，需要描述不同人格特征
+    8. 字数不少于800字`;
 
     try {
         const response = await callAPI(prompt);
@@ -331,9 +359,7 @@ ${selectedTrauma.length > 0 ? `重要经历：${selectedTrauma.join("、")}` : '
         const mainComplaint = extractMainComplaint(response);
         addMessage("新的病人已到达，请开始问诊。", 'system');
         addMessage(mainComplaint, 'patient');
-
-        // 添加翻译调用
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('生成病例失败:', error);
         hideLoading();
@@ -385,10 +411,7 @@ async function sendMessage() {
         } catch (error) {
             console.error('解析评分失败:', error);
         }
-
-        // 添加翻译调用
-        translate.execute();
-
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('发送消息失败:', error);
         addMessage('系统错误，请稍后重试。', 'system');
@@ -508,7 +531,7 @@ function openExamination() {
         });
 
         modal.style.display = 'block';
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('打开检查弹窗失败:', error);
         console.log('examinations:', examinations);
@@ -541,6 +564,7 @@ function updateSelectedExams() {
             <div class="total-price">总价：￥${totalPrice}</div>
         </div>
     `;
+    translate.execute(); // 添加翻译调用
 }
 
 async function confirmExams() {
@@ -583,9 +607,7 @@ async function confirmExams() {
 
         const results = await callAPI(resultsPrompt);
         addMessage(results, 'system');
-
-        // 添加翻译调用
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('生成检查评估失败:', error);
     }
@@ -618,7 +640,7 @@ function openDiagnosis() {
     });
 
     modal.style.display = 'block';
-    translate.execute();
+    translate.execute(); // 添加翻译调用
 }
 
 function prescribeMedicine() {
@@ -679,7 +701,7 @@ function prescribeMedicine() {
         medicineList.appendChild(confirmButton);
 
         modal.style.display = 'block';
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('打开药物弹窗失败:', error);
     }
@@ -721,6 +743,7 @@ function updateSelectedMedicines() {
             <div class="total-price">总价：￥${totalPrice}</div>
         </div>
     `;
+    translate.execute(); // 添加翻译调用
 }
 
 function closeModal(modalId) {
@@ -895,9 +918,7 @@ async function confirmPrescription() {
     try {
         const expertFeedback = await callAPI(expertPrompt);
         addMessage(expertFeedback, 'expert');
-
-        // 添加翻译调用
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('获取专家评估失败:', error);
     }
@@ -935,9 +956,7 @@ async function confirmDiagnosis() {
     try {
         const expertFeedback = await callAPI(expertPrompt);
         addMessage(expertFeedback, 'expert');
-
-        // 添加翻译调用
-        translate.execute();
+        translate.execute(); // 添加翻译调用
     } catch (error) {
         console.error('获取专家评估失败:', error);
     }
