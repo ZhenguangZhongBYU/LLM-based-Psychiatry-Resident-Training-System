@@ -1,106 +1,86 @@
-# 精神科医生培训系统
+# 基于大语言模型的精神科医生培训系统
+# LLM-based Psychiatry Resident Training System
 
-这是一个基于网页的精神科医生培训系统，用于模拟真实的精神科问诊场景，帮助医生提升诊疗水平。
+## 项目简介 | Project Introduction
+这是一个基于大语言模型的精神科医生培训系统，用于模拟真实的精神科问诊场景。
+This is a psychiatry resident training system based on large language models, designed to simulate real psychiatric consultation scenarios.
 
-## 主要功能
+## 主要功能 | Main Features
+1. 自动生成病例 | Case Generation
+- 生成真实的精神科病例
+- Generates authentic psychiatric cases
+- 包含完整的病史和症状描述
+- Includes complete medical history and symptom descriptions
 
-### 1. 病例模拟
-- 自动生成多样化的精神科病例
-- 包含详细的患者背景信息
-- 模拟真实的问诊对话场景
+2. 交互式问诊 | Interactive Consultation
+- 医生可以自由提问和交流
+- Doctors can freely ask questions and communicate
+- AI模拟病人真实回答
+- AI simulates realistic patient responses
 
-### 2. 检查开具
-- 全面的检查项目库
-  - 心理评估量表
-  - 神经系统检查
-  - 影像学检查
-  - 实验室检查
-  - 睡眠相关检查
-- 每个检查项目包含详细说明和禁忌症
-- 支持多项检查同时开具
-
-### 3. 诊断系统
-- 完整的精神科诊断体系
-  - 情感障碍
-  - 焦虑障碍
-  - 精神病性障碍
-  - 人格障碍
-  - 神经发育障碍
-  - 躯体形式障碍
-- 支持多重诊断
-- 包含详细的诊断标准
-
-### 4. 处方系统
-- 丰富的药物数据库
-  - 抗抑郁药
-  - 抗焦虑药
-  - 抗精神病药
-  - 心境稳定剂
-  - 中成药
-- 包含药物详细信息和使用说明
-- 支持多药联用
-
-### 5. 专家评估系统
+3. 专家评估 | Expert Evaluation
 - 实时评估医生的问诊表现
-- 对检查、诊断和处方进行专业点评
-- 提供具体的改进建议
-- 评分反馈系统
+- Real-time evaluation of doctor's consultation performance
+- 提供专业的改进建议
+- Provides professional improvement suggestions
 
-## 使用说明
+4. 检查开具 | Examination Orders
+- 全面的精神科检查项目
+- Comprehensive psychiatric examination items
+- 包括心理量表、影像学等检查
+- Includes psychological scales, imaging tests, etc.
 
-1. 开始新病例
-   - 点击"新病例"按钮开始模拟问诊
-   - 系统会自动生成患者信息和主诉
+5. 诊断系统 | Diagnosis System
+- 标准化的精神科诊断
+- Standardized psychiatric diagnoses
+- 完整的诊断分类体系
+- Complete diagnostic classification system
 
-2. 问诊过程
-   - 通过输入框与患者进行对话
-   - 专家系统会对每次对话进行评估
+6. 处方开具 | Prescription
+- 精神科常用药物数据库
+- Database of commonly used psychiatric medications
+- 智能处方评估系统
+- Intelligent prescription evaluation system
 
-3. 开具检查
-   - 点击"开具检查"按钮
-   - 在弹出窗口中选择需要的检查项目
-   - 可以多选，系统会显示总价
+## 技术特点 | Technical Features
+- 基于DeepSeek API实现智能对话
+- Intelligent dialogue based on DeepSeek API
+- 支持中英文双语切换
+- Supports Chinese-English bilingual switching
+- 实时响应和评估
+- Real-time response and evaluation
+- 模块化设计，易于扩展
+- Modular design, easy to extend
 
-4. 做出诊断
-   - 点击"做出诊断"按钮
-   - 在弹出窗口中选择诊断
-   - 支持多重诊断
+## 使用说明 | Usage Instructions
+1. 开始新病例 | Start New Case
+- 点击"新病例"按钮开始训练
+- Click "New Case" button to start training
+- 系统自动生成病例信息
+- System automatically generates case information
 
-5. 开具处方
-   - 点击"开具处方"按钮
-   - 选择合适的药物
-   - 系统会检查药物相互作用
+2. 问诊交流 | Consultation
+- 在输入框中输入问题
+- Enter questions in the input box
+- 获取病人回答和专家评估
+- Receive patient responses and expert evaluations
 
-6. 结束病例
-   - 点击"结束病例"按钮
-   - 系统会给出总体评估
+3. 检查诊断 | Examination and Diagnosis
+- 选择适当的检查项目
+- Select appropriate examination items
+- 做出诊断判断
+- Make diagnostic decisions
 
-## 技术特点
+4. 开具处方 | Prescribe Medications
+- 选择合适的药物治疗
+- Select appropriate medications
+- 获取处方合理性评估
+- Receive prescription rationality evaluation
 
-- 纯前端实现，无需后端服务器
-- 使用现代 JavaScript 技术
-- 响应式设计，适配不同屏幕尺寸
-- 模块化结构，易于扩展
-
-## 注意事项
-
-1. 本系统仅用于教学培训目的
-2. 系统生成的病例和建议仅供参考
-3. 实际临床工作中需要根据具体情况判断
-4. 建议在专业医生指导下使用
-
-## 后续开发计划
-
-1. 添加更多专科病例
-2. 增加病例难度分级
-3. 完善专家评估系统
-4. 添加用户进度追踪
-5. 优化用户界面体验
-
-## 贡献指南
-
-欢迎提交 Issue 和 Pull Request 来帮助改进系统。
-
-## 许可证
-
-MIT License 
+## 注意事项 | Notes
+- 所有病例均为模拟生成，仅供训练使用
+- All cases are simulated and for training purposes only
+- 系统评分仅供参考
+- System scoring is for reference only
+- 建议在专业指导下使用
+- Recommended to use under professional guidance 
