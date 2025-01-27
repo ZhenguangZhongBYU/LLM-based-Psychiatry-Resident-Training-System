@@ -4,8 +4,11 @@
 # LLM-based Psychiatry Resident Training System
 
 Contributors: 
+
 Chen Kun - Chongqing University of Science and Technology, School of Mechanical and Intelligent Manufacturing
+
 Zhong Zhenguang - Imperial College London, Department of Bioengineering
+
 Tang Jia - Xinjiang People's Hospital
 
 # [在线演示 | Live Demo](https://hakepai.github.io/LLM-based-Psychiatry-Resident-Training-System/)
