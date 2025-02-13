@@ -1,4 +1,4 @@
-const API_KEY = 'sk-42555d8e90634a829f5008c5a18aed61';
+const API_KEY = 'sk-85ff13681e564528b5ef765a9d934835';
 const API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 let conversationCount = 0;
