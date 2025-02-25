@@ -1,5 +1,5 @@
-const API_KEY = 'sk-3d1a6bb3d4a14494b84865a700c6d773';
-const API_URL = 'https://api.chienkjapi.mom/v1/chat/completions';
+const API_KEY = 'sk-82fd9821df8d4cea90b974be42509894';
+const API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 let conversationCount = 0;
 let currentCase = null;
