@@ -11,7 +11,7 @@ Zhong Zhenguang - Imperial College London, Department of Bioengineering
 
 Tang Jia - Xinjiang People's Hospital
 
-# [在线演示 | Live Demo](https://hakepai.github.io/LLM-based-Psychiatry-Resident-Training-System/)
+# [在线演示 | Live Demo](https://zhenguangzhongbyu.github.io/LLM-based-Psychiatry-Resident-Training-System/)
 
 ## 项目简介 | Project Introduction
 这是一个基于大语言模型的精神科医生培训系统，用于模拟真实的精神科问诊场景。
