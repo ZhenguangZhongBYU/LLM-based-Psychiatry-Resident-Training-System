@@ -11,6 +11,7 @@ Zhong Zhenguang - Imperial College London, Department of Bioengineering
 
 Tang Jia - Xinjiang People's Hospital
 
+Siyuan Qian -Admiral Farragut Academy Tianjin, China
 # [在线演示 | Live Demo](https://zhenguangzhongbyu.github.io/LLM-based-Psychiatry-Resident-Training-System/)
 
 ## 项目简介 | Project Introduction
